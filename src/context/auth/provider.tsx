@@ -43,7 +43,7 @@ export const useUser = () => {
   }
 }
 
-export default function Provider({ children }: { children: React.ReactNode }) {
+export default function Provider ({ children }: { children: React.ReactNode }) {
   const [userState, setUserState] = useState(initialState)
 
   const isAdmin = userState.user?.authorities === AUTHORITIES.ROLE_ADMINISTRATOR

@@ -16,7 +16,7 @@ interface Props {
   readonly children: React.ReactNode
 }
 
-export default function ThemeProvider({ children }: Props) {
+export default function ThemeProvider ({ children }: Props) {
   const [themeMode, setThemeMode] = useState<PaletteMode>('light')
 
   const theme = useMemo(

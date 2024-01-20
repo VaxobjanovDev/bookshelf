@@ -11,7 +11,7 @@ interface Props extends BaseTextFieldProps {
   readonly placeholder: string
 }
 
-function TextField({ name, label, placeholder, ...props }: Props) {
+function TextField ({ name, label, placeholder, ...props }: Props) {
   const [field, meta] = useField(name || '')
   const error = meta.touched && !!meta.error
   return (

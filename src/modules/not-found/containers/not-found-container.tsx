@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import FlexBox from '../../../components/main/flexbox'
 import { AuthLayout } from '../../../layout'
 
-function NotFoundContainer() {
+function NotFoundContainer () {
   const navigate = useNavigate()
   const handleReload = () => {
     window.location.reload()

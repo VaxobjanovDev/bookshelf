@@ -9,7 +9,7 @@ import TextField from '../../../components/form/textfield'
 import withForm from '../../../components/form/with-form'
 import PasswordTextField from '../../../components/form/password'
 
-function SignUpWindow() {
+function SignUpWindow () {
   const navigate = useNavigate()
   return (
     <Paper sx={{ py: 6, px: 3.5, width: '430px' }} variant="outlined">

@@ -17,7 +17,7 @@ import { useSearchContext } from '../../context/search'
 import { useGetDetail } from '../../hooks/useGetDetail'
 import { getUserDetail } from '../../modules/home/api/api'
 
-function AppHeader() {
+function AppHeader () {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null)
   const getUser = useGetDetail(getUserDetail)
   const { setSearchValue } = useSearchContext()

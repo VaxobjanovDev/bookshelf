@@ -1,4 +1,4 @@
-import { deleteRequest, getRequest, Options, patchRequest, postRequest, putRequest } from '../../../api/base-api'
+import { deleteRequest, getRequest, Options, patchRequest, postRequest } from '../../../api/base-api'
 import * as API from '../../../constants/api'
 
 export const createBook = (options?: Options) => {

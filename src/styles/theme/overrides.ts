@@ -1,6 +1,6 @@
 import { alpha } from '@mui/material/styles'
 import { Components } from '@mui/material/styles/components'
-export function overrides(theme: any): Components<any> {
+export function overrides (theme: any): Components<any> {
   const modeDark = theme.palette.mode === 'dark'
   return {
     MuiCssBaseline: {
@@ -103,30 +103,11 @@ export function overrides(theme: any): Components<any> {
         }
       }
     },
-    MuiInputBase: {
-      styleOverrides: {
-        root: {
-          borderColor: alpha('#000', 1),
-          ['&:hover']: {
-            borderColor: '#FF4D4F'
-          },
-          ['&.Mui-focused']: {
-            borderColor: '#FF4D4F'
-          },
-          inputTypeSearch: {
-            borderColor: 'transparent'
-          }
-        }
-      }
-    },
     MuiFormControlLabel: {
       styleOverrides: {
         root: {
           alignItems: 'flex-start',
           margin: 0,
-          [`&.Mui-focused.MuiTypography-root`]: {
-            color: '#FF4D4F'
-          }
         }
       }
     },

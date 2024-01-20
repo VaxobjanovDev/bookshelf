@@ -9,7 +9,7 @@ export interface WithFormProps {
   readonly validationSchema?: any
 }
 
-function withForm(Component: any, FormProps?: any) {
+function withForm (Component: any, FormProps?: any) {
   const Bookshelf = (props: any) => {
     const { onSubmit, initialValues, validate, validationSchema, ...rest } = props as WithFormProps
     return (

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function useDialog() {
+function useDialog () {
   const [open, setOpen] = useState(false)
   const handleOpen = () => {
     setOpen(true)

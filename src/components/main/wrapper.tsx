@@ -6,6 +6,6 @@ interface Props {
   readonly space?: number
 }
 
-export function Wrapper({ children, space = 5 }: Props) {
+export function Wrapper ({ children, space = 5 }: Props) {
   return <Box py={space}>{children}</Box>
 }

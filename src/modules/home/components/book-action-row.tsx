@@ -9,7 +9,7 @@ interface Props {
   readonly handleStatus: (id: number, book: any, status: number) => void
 }
 
-function BookActionRowMenu({ book, onDelete, handleStatus, status }: Props) {
+function BookActionRowMenu ({ book, onDelete, handleStatus, status }: Props) {
   const [optionsAnchorEl, setOptionsAnchorEl] = React.useState(null)
 
   const anchorIsOpen = Boolean(optionsAnchorEl)
@@ -41,64 +41,68 @@ function BookActionRowMenu({ book, onDelete, handleStatus, status }: Props) {
         open={anchorIsOpen}
         onClose={handleCloseOptions}
       >
-        {status === 0 ? (
-          <>
-            <MenuItem
-              onClick={() => {
-                handleStatus(id, book, 1)
-                handleCloseOptions()
-              }}
-            >
+        { status === 0
+          ? (
+            <>
+              <MenuItem
+                onClick={() => {
+                  handleStatus(id, book, 1)
+                  handleCloseOptions()
+                }}
+              >
               To Reading
-            </MenuItem>
-            <MenuItem
-              onClick={() => {
-                handleStatus(id, book, 2)
-                handleCloseOptions()
-              }}
-            >
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  handleStatus(id, book, 2)
+                  handleCloseOptions()
+                }}
+              >
               To Finished
-            </MenuItem>
-          </>
-        ) : status === 1 ? (
-          <>
-            <MenuItem
-              onClick={() => {
-                handleStatus(id, book, 0)
-                handleCloseOptions()
-              }}
-            >
+              </MenuItem>
+            </>
+          )
+          : status === 1
+            ? (
+              <>
+                <MenuItem
+                  onClick={() => {
+                    handleStatus(id, book, 0)
+                    handleCloseOptions()
+                  }}
+                >
               To New
-            </MenuItem>
-            <MenuItem
-              onClick={() => {
-                handleStatus(id, book, 2)
-                handleCloseOptions()
-              }}
-            >
+                </MenuItem>
+                <MenuItem
+                  onClick={() => {
+                    handleStatus(id, book, 2)
+                    handleCloseOptions()
+                  }}
+                >
               To Finished
-            </MenuItem>
-          </>
-        ) : (
-          <>
-            <MenuItem
-              onClick={() => {
-                handleStatus(id, book, 0)
-                handleCloseOptions()
-              }}
-            >
+                </MenuItem>
+              </>
+            )
+            : (
+              <>
+                <MenuItem
+                  onClick={() => {
+                    handleStatus(id, book, 0)
+                    handleCloseOptions()
+                  }}
+                >
               To New
-            </MenuItem>
-            <MenuItem
-              onClick={() => {
-                handleStatus(id, book, 1)
-                handleCloseOptions()
-              }}
-            >
+                </MenuItem>
+                <MenuItem
+                  onClick={() => {
+                    handleStatus(id, book, 1)
+                    handleCloseOptions()
+                  }}
+                >
               To Reading
-            </MenuItem>
-          </>
-        )}
+                </MenuItem>
+              </>
+            )}
         <MenuItem
           onClick={() => {
             onDelete(id)

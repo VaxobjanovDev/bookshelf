@@ -1,7 +1,9 @@
 import qs from 'qs'
-const md5 = require('md5')
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios'
+
 import { createPathWithParams } from '../utils/path-params'
+
+const md5 = require('md5')
 
 export interface Options extends AxiosRequestConfig {
   readonly query?: object
@@ -13,7 +15,7 @@ const queryToString = (query: object = {}): string => {
 }
 
 const createRequestOptions = (url: string, options: AxiosRequestConfig): AxiosRequestConfig => {
-  let { headers, method, data } = options
+  const { headers, method, data } = options
   const token = localStorage.getItem('book-token')
   const dataSerialize = data ? JSON.stringify(data) : ''
   if (token) {

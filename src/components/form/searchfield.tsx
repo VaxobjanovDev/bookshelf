@@ -1,7 +1,6 @@
 import React from 'react'
 import InputAdornment from '@mui/material/InputAdornment'
 import IconButton from '@mui/material/IconButton'
-import { useField } from 'formik'
 import { styled } from '@mui/material/styles'
 import { SearchIcon } from 'icons/search-icon'
 
@@ -50,8 +49,6 @@ const SearchTextField = styled(TextField)({
 })
 
 const SearchField: React.FC<CustomTextFieldProps> = ({ name, placeholder, fullWidth = true, form, ...props }) => {
-  const [, , helpers] = useField(name || '')
-
   return (
     <SearchTextField
       name={name}

@@ -18,7 +18,7 @@ interface Props {
   readonly form: any
 }
 
-function BookAddDialogue({ open, handleClose, loading, form }: Props) {
+function BookAddDialogue ({ open, handleClose, loading, form }: Props) {
   return (
     <Dialog open={open} onClose={handleClose} maxWidth="lg">
       <DialogTitle>

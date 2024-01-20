@@ -13,7 +13,7 @@ export enum AUTHORIZED_STATUS {
   YES = 'yes',
   NO = 'no'
 }
-function App() {
+function App () {
   const [isAuthorized, setIsAuthorized] = useState('' as AUTHORIZED_STATUS)
   const token = localStorage.getItem('book-token') || ''
 

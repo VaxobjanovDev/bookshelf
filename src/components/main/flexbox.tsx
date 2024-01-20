@@ -19,7 +19,7 @@ interface Props {
   readonly useFlexGap?: boolean
 }
 
-function FlexBox({
+function FlexBox ({
   justify,
   align = 'center',
   gap,

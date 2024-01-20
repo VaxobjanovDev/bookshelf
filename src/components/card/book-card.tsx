@@ -1,9 +1,7 @@
 import React, { ReactNode } from 'react'
 import FlexBox from 'components/main/flexbox'
 import { Box, Chip, Paper, Typography } from '@mui/material'
-import { always, cond, equals, propOr } from 'ramda'
-
-import { Book, DataItem } from '../../api/base-DTO'
+import { always, cond, equals } from 'ramda'
 
 interface Props {
   readonly book: any

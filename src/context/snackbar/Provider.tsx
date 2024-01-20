@@ -48,7 +48,7 @@ export const useSnackbar = () => {
   return handleOpen
 }
 
-export function Provider({ children }: { children: ReactNode }) {
+export function Provider ({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   const handleOpen = (payload: any) => {

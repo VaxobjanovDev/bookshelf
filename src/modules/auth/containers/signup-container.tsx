@@ -24,12 +24,11 @@ const initialValues = {
   secret: ''
 }
 
-function SignUpContainer({ setIsAuthorized }: Props) {
+function SignUpContainer ({ setIsAuthorized }: Props) {
   const signUpPost = usePost(signUpApi)
 
   const handleSubmit = useCallback(
     (values: SignInFormProps) => {
-      console.log(values)
       signUpPost.postData({ data: values }).then((response: SignInResponse) => {
         const key = path(['data', 'key'], response)
         const secret = path(['data', 'secret'], response)
