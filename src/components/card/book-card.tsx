@@ -34,7 +34,7 @@ export const BookCard = ({ book, status, actions }: Props) => {
         width: '400px'
       }}
     >
-      <FlexBox direction="column" spacing={2} useFlexGap align="flex-start">
+      <FlexBox direction="column" spacing={2} align="flex-start">
         <Box sx={{ width: '100%' }}>
           <FlexBox justify="space-between">
             <Typography variant="h6" mb={1} noWrap>
@@ -50,7 +50,7 @@ export const BookCard = ({ book, status, actions }: Props) => {
           <Typography variant="body2">Isbn: {book?.isbn}</Typography>
         </Box>
         <FlexBox direction="row" align="center" justify="space-between" sx={{ width: '100%' }}>
-          <Typography variant="body2">
+          <Typography variant="body1" sx={{ fontWeight:'500' }}>
             {book?.author} / {book?.published}
           </Typography>
           {Boolean(statusLabel) && <Chip label={statusLabel} color={statusColor} />}

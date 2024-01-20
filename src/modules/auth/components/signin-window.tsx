@@ -13,7 +13,7 @@ function SignInWindow () {
   const navigate = useNavigate()
   return (
     <Paper sx={{ py: 6, px: 3.5, width: '430px' }} variant="outlined">
-      <FlexBox spacing={3} direction="column" align="center" useFlexGap>
+      <FlexBox spacing={3} direction="column" align="center">
         <Typography variant="h3">Sign in</Typography>
         <FlexBox spacing={2} direction="column" align="center" sx={{ width: '100%' }}>
           <TextField label="Username" name="email" type="email" placeholder="Enter your email or username" />

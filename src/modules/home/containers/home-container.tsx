@@ -62,12 +62,14 @@ export const HomeContainer = () => {
       <Container maxWidth={'xl'}>
         <FlexBox align="flex-start" justify="space-between" sx={{ my: 2 }}>
           <Box>
-            <Typography variant="h3" color="grey.100">
-              You’ve got
+            <FlexBox>
+              <Typography variant="h3" color="grey.100">
+                You’ve got
+              </Typography>
               <Typography variant="h3" color="primary" sx={{ display: 'inline', ml: 1 }}>
                 {list.length === 0 ? 'no book please add book!' : list.length + ' book'}
               </Typography>
-            </Typography>
+            </FlexBox>
             <Typography variant="h5" color="grey.100" sx={{ mt: 1 }}>
               Your books today
             </Typography>
