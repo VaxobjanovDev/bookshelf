@@ -13,7 +13,7 @@ interface Props extends BaseTextFieldProps {
 
 function TextField ({ name, label, placeholder, ...props }: Props) {
   const [field, meta] = useField(name || '')
-  const error = meta.touched && !!meta.error
+
   return (
     <FormControlLabel
       control={
@@ -23,7 +23,7 @@ function TextField ({ name, label, placeholder, ...props }: Props) {
           color="error"
           variant="outlined"
           placeholder={placeholder}
-          error={error}
+          error={meta.touched && Boolean(meta.error)}
           helperText={meta.touched && meta.error}
           // @ts-ignore
           onWheel={(e) => e.target.blur()}

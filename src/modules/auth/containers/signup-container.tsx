@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react'
 import { AUTHORIZED_STATUS } from 'App'
 import { path } from 'ramda'
+import * as Yup from 'yup'
 
 import { AuthLayout } from '../../../layout'
 import SignUpWindow from '../components/signup-window'
@@ -27,6 +28,13 @@ const initialValues = {
 function SignUpContainer ({ setIsAuthorized }: Props) {
   const signUpPost = usePost(signUpApi)
 
+  const validationSchema = Yup.object({
+    name:Yup.string().min(3).required('Name field is required!'),
+    email:Yup.string().required('Email field is required!'),
+    key:Yup.string().min(4, 'Too short please enter minimum 4 character!').required('Key field is required!'),
+    secret:Yup.string().min(5, 'Too short please enter minimum 5 character!').required('Secret field is required!')
+  })
+
   const handleSubmit = useCallback(
     (values: SignInFormProps) => {
       signUpPost.postData({ data: values }).then((response: SignInResponse) => {
@@ -42,7 +50,11 @@ function SignUpContainer ({ setIsAuthorized }: Props) {
 
   return (
     <AuthLayout>
-      <SignUpWindow initialValues={initialValues} onSubmit={handleSubmit} />
+      <SignUpWindow
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}
+      />
     </AuthLayout>
   )
 }

@@ -19,15 +19,15 @@ function withForm (Component: any, FormProps?: any) {
         initialValuesEqual={isEqual}
         initialValues={initialValues}
         validationSchema={validationSchema}
-        validateOnChange={false}
-        validateOnBlur={false}
         {...FormProps}
       >
-        {(form: any) => (
-          <Form>
-            <Component {...rest} form={form} />
-          </Form>
-        )}
+        {(form: any) => {
+          return (
+            <Form>
+              <Component {...rest} form={form}/>
+            </Form>
+          )
+        }}
       </Formik>
     )
   }
