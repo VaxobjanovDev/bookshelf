@@ -65,7 +65,7 @@ export const HomeContainer = () => {
             <Typography variant="h3" color="grey.100">
               You’ve got
               <Typography variant="h3" color="primary" sx={{ display: 'inline', ml: 1 }}>
-                {list.length} book
+                {list.length === 0 ? 'no book please add book!' : list.length + ' book'}
               </Typography>
             </Typography>
             <Typography variant="h5" color="grey.100" sx={{ mt: 1 }}>
