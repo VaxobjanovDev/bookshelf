@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom'
 
-function useSearchParams() {
+function useSearchParams () {
   const location = useLocation()
   return new URLSearchParams(location.search)
 }

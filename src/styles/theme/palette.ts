@@ -118,7 +118,7 @@ export const nightModeColors = {
   }
 }
 
-export function palette(mode: PaletteMode = 'light') {
+export function palette (mode: PaletteMode = 'light') {
   const isNightMode = mode === 'dark'
   return {
     ...base,

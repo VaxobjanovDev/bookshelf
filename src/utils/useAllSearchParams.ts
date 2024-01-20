@@ -1,6 +1,6 @@
 import useSearchParams from './useSearchParams'
 
-function useAllSearchParams() {
+function useAllSearchParams () {
   const searchParams = useSearchParams()
   const params = {} as any
 

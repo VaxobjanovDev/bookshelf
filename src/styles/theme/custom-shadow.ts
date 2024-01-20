@@ -22,7 +22,7 @@ export interface CustomShadowsInterface {
   error: string
 }
 
-export function customShadows() {
+export function customShadows () {
   const transparent = alpha(grey[500], 0.16)
 
   return {

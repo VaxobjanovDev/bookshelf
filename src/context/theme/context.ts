@@ -1,6 +1,11 @@
 import { createContext, useContext } from 'react'
 
-export const ThemeContext = createContext({
+interface ThemeContextProps {
+  toggleColorMode: () => void;
+}
+
+export const ThemeContext = createContext<ThemeContextProps>({
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   toggleColorMode: () => {}
 })
 
