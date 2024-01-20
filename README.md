@@ -21,13 +21,9 @@
 2. Install dependencies: `npm install`
 3. Start the development server: `npm start`
 
-## API Endpoints
-
-- ... (list API endpoints used for book data)
-
 ## Usage
 
-1. Log in or sign up
+1. Sign up in app
 2. Search for books
 3. Add new books
 4. Delete books
