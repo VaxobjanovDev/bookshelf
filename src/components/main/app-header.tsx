@@ -9,6 +9,7 @@ import MenuItem from '@mui/material/MenuItem'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import { prop } from 'ramda'
+import { Link } from 'react-router-dom'
 
 import FlexBox from './flexbox'
 
@@ -50,7 +51,9 @@ function AppHeader () {
     <Container maxWidth="xl">
       <FlexBox flex justify="space-between">
         <FlexBox spacing={2}>
-          <img src={Logo} alt="logo" />
+          <Link to="/">
+            <img src={Logo} alt="logo" />
+          </Link>
           <SearchField
             name="title"
             initialValues={{}}
