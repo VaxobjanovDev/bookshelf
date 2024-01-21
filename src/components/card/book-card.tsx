@@ -37,7 +37,7 @@ export const BookCard = ({ book, status, actions }: Props) => {
       <FlexBox direction="column" spacing={2} align="flex-start">
         <Box sx={{ width: '100%' }}>
           <FlexBox justify="space-between">
-            <Typography variant="h6" mb={1} noWrap>
+            <Typography variant="h6" noWrap>
               {book?.title}
             </Typography>
             {statusLabel && actions && <Box>{actions()}</Box>}
