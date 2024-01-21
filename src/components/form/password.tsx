@@ -28,7 +28,7 @@ const PasswordTextField: React.FC<CustomTextFieldProps> = ({ name, label, placeh
         endAdornment: (
           <InputAdornment position="end">
             <IconButton aria-label="toggle password visibility" onClick={handleClickShowPassword} edge="end">
-              {showPassword ? <VisibilityOff /> : <Visibility />}
+              {showPassword ? <Visibility /> : <VisibilityOff />}
             </IconButton>
           </InputAdornment>
         )
