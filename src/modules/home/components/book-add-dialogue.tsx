@@ -32,7 +32,7 @@ function BookAddDialogue ({ open, handleClose, loading, form }: Props) {
       <DialogContent>
         <TextField label="ISBN" name="isbn" placeholder="ISBN" />
       </DialogContent>
-      <DialogActions>
+      <DialogActions sx={{ px:3 }}>
         <Button onClick={handleClose} variant="outlined" fullWidth={true}>
           Close
         </Button>
