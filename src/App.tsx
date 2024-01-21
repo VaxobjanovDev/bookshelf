@@ -29,16 +29,15 @@ function App () {
             <Routes>
               {isAuthorized === AUTHORIZED_STATUS.NO && (
                 <>
+                  <Route path="*" element={<NotFoundContainer />} />
+                  <Route path={ROUTES.HOME} element={<Navigate replace to={ROUTES.AUTHSIGNUP} />} />
                   <Route path={ROUTES.AUTHSIGN} element={<SignInContainer />} />
                   <Route path={ROUTES.AUTHSIGNUP} element={<SignUpContainer setIsAuthorized={setIsAuthorized} />} />
-                  <Route path="*" element={<Navigate replace to={ROUTES.AUTHSIGNUP} />} />
                 </>
               )}
               {isAuthorized === AUTHORIZED_STATUS.YES && (
                 <>
                   <Route path={ROUTES.HOME} element={<HomeContainer />} />
-                  <Route path="/*" element={<Navigate replace to={ROUTES.HOME} />} />
-                  <Route path="*" element={<Navigate replace to={ROUTES.NOTFOUND} />} />
                   <Route path="*" element={<NotFoundContainer />} />
                 </>
               )}

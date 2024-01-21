@@ -1,7 +1,10 @@
+import * as ROUTES from 'constants/routes'
+
+import * as Yup from 'yup'
 import React, { useCallback } from 'react'
 import { AUTHORIZED_STATUS } from 'App'
 import { path } from 'ramda'
-import * as Yup from 'yup'
+import { useNavigate } from 'react-router-dom'
 
 import { AuthLayout } from '../../../layout'
 import SignUpWindow from '../components/signup-window'
@@ -27,6 +30,7 @@ const initialValues = {
 
 function SignUpContainer ({ setIsAuthorized }: Props) {
   const signUpPost = usePost(signUpApi)
+  const navigate = useNavigate()
 
   const validationSchema = Yup.object({
     name:Yup.string().min(3).required('Name field is required!'),
@@ -44,6 +48,7 @@ function SignUpContainer ({ setIsAuthorized }: Props) {
         localStorage.setItem('book-token', JSON.stringify(accessToken))
         setIsAuthorized(AUTHORIZED_STATUS.YES)
       })
+        .then(() => navigate(ROUTES.HOME))
     },
     [setIsAuthorized]
   )
