@@ -18,8 +18,11 @@
 ## Setup
 
 1. Clone the repository
-2. Install dependencies: `npm install`
-3. Start the development server: `npm start`
+   ```bash
+   https://github.com/VaxobjanovDev/bookshelf.git
+   
+3. Install dependencies: `npm install`
+4. Start the development server: `npm start`
 
 ## Usage
 
