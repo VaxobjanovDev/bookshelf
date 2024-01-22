@@ -3,9 +3,12 @@ import InputAdornment from '@mui/material/InputAdornment'
 import IconButton from '@mui/material/IconButton'
 import { styled } from '@mui/material/styles'
 import { SearchIcon } from 'icons/search-icon'
+import { useField } from 'formik'
 
 import withForm from './with-form'
 import TextField from './textfield'
+
+import { CancelSearchIcon } from '../../icons/cancel-search-icon'
 interface CustomTextFieldProps {
   name: string
   variant?: 'outlined'
@@ -49,10 +52,16 @@ const SearchTextField = styled(TextField)({
 })
 
 const SearchField: React.FC<CustomTextFieldProps> = ({ name, placeholder, fullWidth = true, form, ...props }) => {
+  const [field,, helpers] = useField(name)
+  const handleReset = () => {
+    helpers.setValue('')
+    form.submitForm()
+  }
+
   return (
     <SearchTextField
       name={name}
-      type="search"
+      type="text"
       placeholder={placeholder}
       fullWidth={true}
       {...props}
@@ -61,6 +70,13 @@ const SearchField: React.FC<CustomTextFieldProps> = ({ name, placeholder, fullWi
           <InputAdornment position="start">
             <IconButton edge="start" sx={{ color: '#fff' }}>
               <SearchIcon />
+            </IconButton>
+          </InputAdornment>
+        ),
+        endAdornment: (
+          <InputAdornment position="end">
+            <IconButton edge="end" onClick={handleReset}>
+              {field.value && <CancelSearchIcon />}
             </IconButton>
           </InputAdornment>
         )
