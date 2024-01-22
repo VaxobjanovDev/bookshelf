@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import { pathOr, prop, propOr } from 'ramda'
 
 import { DataItem, GetListResponse } from '../api/base-DTO'
@@ -16,8 +16,11 @@ export const useGetList = <T>(api: (options?: Options) => Promise<GetListRespons
   const [list, setList] = useState([] as DataItem[])
   const [loading, setLoading] = useState(false)
   const [query, setQuery] = useState({}) as any
+  const abortControllerRef = useRef(new AbortController())
   const getList = useCallback(
     (options?: Options) => {
+      abortControllerRef.current.abort()
+      abortControllerRef.current = new AbortController()
       const limit = prop('limit', searchParams) || DEFAULT_PAGE_SIZE
       const start = prop('start', searchParams) || DEFAULT_PAGE_NUMBER
       const defaultGetQuery = {
@@ -29,13 +32,15 @@ export const useGetList = <T>(api: (options?: Options) => Promise<GetListRespons
         }
       }
       setLoading(true)
-      return api({ ...listOptions, ...options })
+      return api({ ...listOptions, ...options, signal: abortControllerRef.current.signal })
         .then((response) => {
           setResult(response)
           setQuery(defaultGetQuery.query)
           const list = prop('data', response)
           if (list) {
             setList(response.data)
+          } else {
+            setList([])
           }
           setLoading(false)
           return response
@@ -43,11 +48,13 @@ export const useGetList = <T>(api: (options?: Options) => Promise<GetListRespons
         .catch((error) => {
           setList([])
           setLoading(false)
-          const dataError = pathOr('Oops, Something went wrong', ['data', 'message'], error)
-          const userMsg =
+          if (error) {
+            const dataError = pathOr('Oops, Something went wrong', ['data', 'message'], error)
+            const userMsg =
             typeof dataError === 'object' ? propOr('Oops, Something went wrong', 'user_msg', dataError) : dataError
 
-          snackbar({ message: userMsg, type: ALTER_ERROR })
+            snackbar({ message: userMsg, type: ALTER_ERROR })
+          }
           throw error
         })
     },
