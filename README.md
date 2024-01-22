@@ -18,7 +18,7 @@
 ## Setup
 
 1. Clone the repository
-
+   ```bash
    https://github.com/VaxobjanovDev/bookshelf.git
    
 3. Install dependencies: `npm install`
