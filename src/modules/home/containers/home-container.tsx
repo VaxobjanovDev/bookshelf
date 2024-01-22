@@ -67,7 +67,7 @@ export const HomeContainer = () => {
                 You’ve got
               </Typography>
               <Typography variant="h3" color="primary" sx={{ display: 'inline', ml: 1 }}>
-                {list.length === 0 ? 'no book please add book!' : list.length + ' book'}
+                {!loading && list.length === 0 ? 'no book please add book!' : list.length + ' book'}
               </Typography>
             </FlexBox>
             <Typography variant="h5" color="grey.100" sx={{ mt: 1 }}>
@@ -91,7 +91,7 @@ export const HomeContainer = () => {
               const status = prop('status', item)
               const searchBook = book || item
               return (
-                <Grid item lg={'auto'}>
+                <Grid item lg={'auto'} key={id}>
                   <BookCard
                     key={id}
                     book={searchBook}
